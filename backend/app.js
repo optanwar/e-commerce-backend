@@ -23,22 +23,13 @@ if(process.env.NODE_ENV !== "PRODUCTION") {
 app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-const allowedOrigins = ["https://optanwar-ecommerce.vercel.app", "http://localhost:5173", "https://yourdomain.com"];
+
 app.use(cors({
   origin: ["https://optanwar-ecommerce.vercel.app", "http://localhost:5173"],
   credentials: true,
 }));
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-}));
+
   
 
 
