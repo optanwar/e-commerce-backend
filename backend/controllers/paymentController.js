@@ -7,6 +7,7 @@ exports.processPayment = catchAsyncError(async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount,
     currency: 'usd',
+      automatic_payment_methods: { enabled: true }, // ✅ important!
     metadata: { integration_check: 'accept_a_payment' },
   });
 
