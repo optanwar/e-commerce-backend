@@ -8,13 +8,14 @@ const crypto = require('crypto');
 // Register a user => /api/v1/register
 
 exports.registerUser = catchAsyncErrors(async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password ,role } = req.body;
     const user = await User.create({
         name, email, password,
         avatar: {
             public_id: 'public_id',
             url: 'url'
-        }
+        },
+        role
     });
 
     sendToken(user,201, res);
