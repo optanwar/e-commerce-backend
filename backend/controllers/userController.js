@@ -77,7 +77,8 @@ exports.forgotPassword = catchAsyncErrors(async (req, res ,next) => {
 
     // Create reset password url
 
-    const resetPasswordUrl = `${req.protocol}://${req.get('host')}/api/v1/password/reset/${resetToken}`;
+    const resetPasswordUrl = `https:://optanwar-ecommerce.vercel.app/api/v1/password/reset/${resetToken}`;
+    
 
     const message = `Your password reset token is as follow:\n\n ${resetPasswordUrl} \n\nIf you have not requested this email, then ignore it. `;
 
